@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 const componentsPath = path.resolve(__dirname, "./components");
 
@@ -7,7 +7,10 @@ const componentsDirs = fs
   .readdirSync(componentsPath)
   .filter((item) => !item.includes("."));
 
-module.exports = {
+console.log("componentsDirs", componentsDirs);
+console.log("commit", commit);
+
+export default {
   extends: ["@commitlint/config-conventional"],
   rules: {
     "subject-case": [

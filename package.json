@@ -1,9 +1,9 @@
 {
   "name": "atome-design",
   "scripts": {
-    "dev": "run-p swc:dev site:dev",
-    "build": "run-p site:build",
-    "preview": "run-p site:preview",
+    "dev": "pnpm run swc:dev & pnpm run site:dev",
+    "build": "pnpm run site:build",
+    "preview": "pnpm run site:preview",
     "site:preview": "vitepress preview",
     "site:dev": "vitepress dev",
     "site:build": "vitepress build",
@@ -12,6 +12,7 @@
     "commit": "git-cz",
     "prepare": "husky install"
   },
+  "type": "module",
   "dependencies": {
     "@arco-design/web-react": "^2.52.0"
   },
@@ -34,6 +35,7 @@
       "eslint --cache --fix"
     ]
   },
+  "packageManager": "pnpm@8.6.9",
   "devDependencies": {
     "@babel/parser": "^7.22.11",
     "@babel/traverse": "^7.22.11",
