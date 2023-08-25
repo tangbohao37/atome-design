@@ -8,6 +8,7 @@ export default defineConfigWithTheme<AdvThemeConfig>({
   title: "Atome Design",
   description: "Atome Design Components for React",
   lang: "en-US",
+  base: "https://github.com/tangbohao37/atome-design",
   vite: {
     resolve: {
       alias: {
