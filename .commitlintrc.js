@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const componentsPath = path.resolve(__dirname, "./packages/docs/components");
+const componentsPath = path.resolve(__dirname, "./components");
 
 const componentsDirs = fs
   .readdirSync(componentsPath)
