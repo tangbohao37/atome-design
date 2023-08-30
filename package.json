@@ -10,7 +10,8 @@
     "swc:build": "npx swc ./site/react-components/*.tsx -d ./site/ -C jsc.transform.react.runtime=automatic",
     "swc:dev": "pnpm run swc:build -w ",
     "commit": "git-cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version"
   },
   "type": "module",
   "dependencies": {

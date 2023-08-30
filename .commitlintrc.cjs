@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
 const componentsPath = path.resolve(__dirname, "./components");
 
@@ -8,9 +8,8 @@ const componentsDirs = fs
   .filter((item) => !item.includes("."));
 
 console.log("componentsDirs", componentsDirs);
-console.log("commit", commit);
 
-export default {
+module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     "subject-case": [
