@@ -7,8 +7,9 @@ import path from "path";
 export default defineConfigWithTheme<AdvThemeConfig>({
   title: "Atome Design",
   description: "Atome Design Components for React",
-  lang: "en-US",
+  lang: "en",
   base: "/atome-design/",
+  srcDir: "docs",
   vite: {
     resolve: {
       alias: {
@@ -17,6 +18,16 @@ export default defineConfigWithTheme<AdvThemeConfig>({
     },
     ssr: {
       noExternal: ["naive-ui", "veaury", "@arco-design/web-react"],
+    },
+  },
+  locales: {
+    root: {
+      label: "English",
+      lang: "en",
+    },
+    "zh-cn": {
+      label: "简体中文",
+      lang: "zh-cn",
     },
   },
   markdown: {

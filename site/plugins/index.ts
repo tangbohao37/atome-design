@@ -48,6 +48,7 @@ const getNeedImportStatement = (demoImportCode: string[]) => {
 };
 
 const getFileStatement = (mdFilePath: string, sourceCodePath: string) => {
+  // TODO: 如何获取 vite 配置？ 方便使用 @ 别名路径
   const codeFilePath = path.resolve(mdFilePath, sourceCodePath); // 引入的 code 原文件路径
   const fileExists = fs.existsSync(codeFilePath);
   if (!fileExists) {
