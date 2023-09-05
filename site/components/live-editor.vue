@@ -36,9 +36,9 @@ import { useData } from "vitepress";
 import { applyReactInVue } from "veaury";
 import VueMonacoEditor from "@guolao/vue-monaco-editor";
 import { ref, shallowRef } from "vue";
-// import { type ILiveEditor } from "../types";
 import { Refresh, CopyOutline } from "@vicons/ionicons5";
 import { NIcon, NButton } from "naive-ui";
+// import { type ILiveEditor } from "../types";
 
 // FIXME: 无法引入外部的类型 ILiveEditor
 type IProps = {

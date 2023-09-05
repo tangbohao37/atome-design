@@ -1,4 +1,4 @@
-import { Space } from "@arco-design/web-react";
+import { Space, Divider } from "@arco-design/web-react";
 import { Button } from "@/components/button";
 
 const App = () => {
@@ -21,6 +21,7 @@ const App = () => {
           Text
         </Button>
       </Space>
+      {/* <Divider></Divider> */}
       <Space size="large">
         <Button disabled type="primary" status="danger">
           Primary

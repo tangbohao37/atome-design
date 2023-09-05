@@ -13,38 +13,47 @@ const scriptLangTsRE = /<\s*script[^>]*\blang=['"]ts['"][^>]*/;
 const scriptSetupRE = /<\s*script[^>]*\bsetup\b[^>]*/;
 const scriptClientRE = /<\s*script[^>]*\bclient\b[^>]*/;
 const importRegex = /import[\s\S]*?;/g;
-const importRecord: Record<string, any> = {};
+const scriptRegex = /<script[^>]*>([\s\S]*?)<\/script>/;
 
 const filterJSXComments = (code: string) => {
   const commentRegex = /{\/\*[\s\S]*?\*\/}|\/\/.*/g;
   return code.replace(commentRegex, "");
 };
 
-const recordImportStatement = (ast: any) => {
-  (traverse as any).default(ast, {
-    StringLiteral(path: NodePath) {
-      if (path.parent.type === "ImportDeclaration") {
-        // if (isImportDeclaration(path.parent)) {
-        const parent = path.parent;
-        const importStatement = parent.source.value;
-        const importSpecifiers = parent.specifiers.map(
-          (specifier) => specifier.local.name,
-        );
-        // TODO: 每个 k/v 记录到 importRecord 中， 对于相同的则不在重复加载， 同名的如何处理呢？
-        importSpecifiers.forEach((specifier) => {
-          importRecord[specifier] = importStatement;
-        });
-      }
-    },
-  });
-};
+const importStatementObj = (code: string) => {
+  const importRecord: Record<string, any> = {};
+  const importPattern = /import\s+(.*?)\s+from/g;
+  const modulePattern = /from\s+['"]([^'"]+)['"]/g;
 
-const getNeedImportStatement = (demoImportCode: string[]) => {
-  return demoImportCode.filter((code) => {
-    return !Object.entries(importRecord).filter(([k, v]) => {
-      return code.includes(k) && code.includes(v as string);
-    }).length;
-  });
+  let importMatches;
+  while ((importMatches = importPattern.exec(code)) !== null) {
+    if (importMatches.length > 1) {
+      const importText = importMatches[1].trim();
+
+      // Find the module using modulePattern
+      let moduleMatches;
+      if ((moduleMatches = modulePattern.exec(code)) !== null) {
+        if (moduleMatches.length > 1) {
+          //  from xxxxxx
+          const moduleText = moduleMatches[1].trim();
+          //  import xxxx ,{ xxxx }
+          const _import = importText.split(",").map((i) => {
+            const pattern = /[{}]/;
+            // 处理 包含 { 或者 } 的import
+            if (pattern.test(i)) {
+              const _n = `{ ${i.replace(/[{}]/g, "").trim()} }`;
+              return _n;
+            }
+            return i.trim();
+          });
+          _import.forEach((_i) => {
+            importRecord[_i] = moduleText;
+          });
+        }
+      }
+    }
+  }
+  return importRecord;
 };
 
 const getFileStatement = (mdFilePath: string, sourceCodePath: string) => {
@@ -74,7 +83,8 @@ const getImportModules = (ast: ParseResult<any>) => {
     Identifier(path: NodePath<any>) {
       if (
         path.parent.type === "ImportDefaultSpecifier" ||
-        path.parent.type === "ImportSpecifier"
+        path.parent.type === "ImportSpecifier" ||
+        path.parent.type === "ImportNamespaceSpecifier"
       ) {
         importModules.add(path.node.name);
       }
@@ -87,6 +97,41 @@ const getImportModules = (ast: ParseResult<any>) => {
 interface IPropsType extends ILiveEditor {
   sourceCodePath: string;
 }
+
+// TIP: 使用 eslint 进行 import 去重复更好，但是markdown-it 不支持异步方法
+// const lintCode = (code: string) => {
+//   const eslint = new ESLint({
+//     fix: true,
+//     fixTypes: ['problem', 'suggestion', 'layout'],
+//     plugins: { unicorn },
+//     useEslintrc: false,
+//     overrideConfig: {
+//       extends: ['standard', 'eslint:recommended', 'prettier'],
+//       parser: '@typescript-eslint/parser',
+//       parserOptions: {
+//         sourceType: 'module',
+//         ecmaVersion: 'latest'
+//       },
+//       rules: {
+//         'no-duplicate-imports': 'warn',
+//         'no-unused-vars': 'off'
+//       },
+//       env: {
+//         es2022: true,
+//         node: true
+//       }
+//     }
+//   });
+//   return eslint.lintText(code).then(([res]) => {
+//     return res.output || '';
+//   });
+// };
+
+const buildImportStatement = (obj: Record<string, string>) => {
+  return Object.entries(obj).map(([k, v]) => {
+    return `import ${k} from '${v}';`;
+  });
+};
 
 export function demoBlockPlugin(md: MarkdownRenderer) {
   const addRenderRule = (type: string) => {
@@ -113,17 +158,6 @@ export function demoBlockPlugin(md: MarkdownRenderer) {
       const { sourceFileStr, demoImportCodeArr, demoImportCodeStr } = statement;
 
       if (demoImportCodeStr) {
-        const ast = parse(demoImportCodeStr, {
-          sourceType: "module",
-          plugins: ["typescript"],
-        });
-
-        const _modules = getImportModules(ast);
-        const _demoNeedImportCode = getNeedImportStatement(
-          demoImportCodeArr || [],
-        );
-        const componentRegisStatement = _demoNeedImportCode.join(os.EOL).trim();
-
         if (!env.sfcBlocks.scripts) {
           env.sfcBlocks.scripts = [];
         }
@@ -134,19 +168,33 @@ export function demoBlockPlugin(md: MarkdownRenderer) {
             scriptSetupRE.test(tag.content) &&
             !scriptClientRE.test(tag.content),
         );
+        let _code = demoImportCodeStr;
         if (existingSetupScriptIndex > -1) {
           const tagSrc = tags[existingSetupScriptIndex];
-          tags[existingSetupScriptIndex].content = tagSrc.content.replace(
-            scriptRE,
-            `${componentRegisStatement}</script>`,
-          );
+          const [, c] = tagSrc.content.match(scriptRegex);
+          const componentRegisStatement = demoImportCodeArr.join(os.EOL).trim();
+          _code = [c, componentRegisStatement].join(os.EOL);
+        }
+        const statementObj = importStatementObj(_code);
+        const importStatementCode = buildImportStatement(statementObj)
+          .join(os.EOL)
+          .trim();
+        const ast = parse(importStatementCode, {
+          sourceType: "module",
+          plugins: ["typescript"],
+        });
+        // 分离 import 语句的 module。 获取需要引入的 scope 传给 LiveEditor
+        const _modules = getImportModules(ast);
+        // console.log(21123, _modules, importStatementCode);
+        if (existingSetupScriptIndex > -1) {
+          tags[existingSetupScriptIndex].content =
+            `<script lang="ts" setup >${importStatementCode}</script>`.trim();
         } else {
           tags.unshift({
             content:
-              `<script lang="ts" setup >${componentRegisStatement}</script>`.trim(),
+              `<script lang="ts" setup >${importStatementCode}</script>`.trim(),
           });
         }
-        recordImportStatement(ast);
         return liveEditorTemplate({
           sourceCode: sourceFileStr,
           hideCode: props.hideCode,
