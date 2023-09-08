@@ -22,8 +22,18 @@ const filterJSXComments = (code: string) => {
 
 const importStatementObj = (code: string) => {
   const importRecord: Record<string, any> = {};
-  const importPattern = /import\s+(.*?)\s+from/g;
+  const directImportRecord = [];
+  const importPattern = /import\s+(.*?)\s+from/gs;
   const modulePattern = /from\s+['"]([^'"]+)['"]/g;
+  const directImportReg = /import\s+["']([^"']+)["'](?!.*\bfrom\b)/g;
+
+  const regex = /import\s+["']([^"']+)["'](?!.*\bfrom\b)/g;
+  let match;
+  while ((match = regex.exec(code)) !== null) {
+    const importStatement = match[0];
+    const filePath = match[1];
+    directImportRecord.push(importStatement);
+  }
 
   let importMatches;
   while ((importMatches = importPattern.exec(code)) !== null) {
@@ -37,10 +47,11 @@ const importStatementObj = (code: string) => {
           //  from xxxxxx
           const moduleText = moduleMatches[1].trim();
           //  import xxxx ,{ xxxx }
+          const pattern = /[{}]/;
+          const hasBrace = pattern.test(importText);
           const _import = importText.split(",").map((i) => {
-            const pattern = /[{}]/;
             // 处理 包含 { 或者 } 的import
-            if (pattern.test(i)) {
+            if (hasBrace) {
               const _n = `{ ${i.replace(/[{}]/g, "").trim()} }`;
               return _n;
             }
@@ -53,7 +64,8 @@ const importStatementObj = (code: string) => {
       }
     }
   }
-  return importRecord;
+
+  return { importRecord, directImportRecord };
 };
 
 const getFileStatement = (mdFilePath: string, sourceCodePath: string) => {
@@ -175,24 +187,26 @@ export function demoBlockPlugin(md: MarkdownRenderer) {
           const componentRegisStatement = demoImportCodeArr.join(os.EOL).trim();
           _code = [c, componentRegisStatement].join(os.EOL);
         }
-        const statementObj = importStatementObj(_code);
+        const { importRecord: statementObj, directImportRecord } =
+          importStatementObj(_code);
         const importStatementCode = buildImportStatement(statementObj)
           .join(os.EOL)
           .trim();
-        const ast = parse(importStatementCode, {
+        const finalCode = [importStatementCode, ...directImportRecord]
+          .join(os.EOL)
+          .trim();
+        const ast = parse(finalCode, {
           sourceType: "module",
           plugins: ["typescript"],
         });
         // 分离 import 语句的 module。 获取需要引入的 scope 传给 LiveEditor
         const _modules = getImportModules(ast);
-        // console.log(21123, _modules, importStatementCode);
         if (existingSetupScriptIndex > -1) {
           tags[existingSetupScriptIndex].content =
-            `<script lang="ts" setup >${importStatementCode}</script>`.trim();
+            `<script lang="ts" setup >${finalCode}</script>`.trim();
         } else {
           tags.unshift({
-            content:
-              `<script lang="ts" setup >${importStatementCode}</script>`.trim(),
+            content: `<script lang="ts" setup >${finalCode}</script>`.trim(),
           });
         }
         return liveEditorTemplate({

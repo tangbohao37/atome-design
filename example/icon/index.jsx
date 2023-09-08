@@ -11,7 +11,8 @@ import {
   IconToTop,
 } from "@arco-design/web-react/icon";
 import { Message } from "@arco-design/web-react";
-import "@/components/icon/eg/index.css";
+import { Message } from "@arco-design/web-react";
+import "@/example/icon/index.css";
 
 const Demo = () => {
   const msg = (str) => {

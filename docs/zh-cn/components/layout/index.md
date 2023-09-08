@@ -1,3 +1,3 @@
 # 布局 Layout
 
-<LiveEditor sourceCodePath="./eg/index.jsx" :hideCode="true" :noStyle="false" />
+<LiveEditor sourceCodePath="../../../../example/layout/index.jsx" :hideCode="true" :noStyle="false" />

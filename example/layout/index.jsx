@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout";
-import "@/components/layout/eg/index.css";
+import "@/example/layout/index.css";
 
 const Sider = Layout.Sider;
 const Header = Layout.Header;
