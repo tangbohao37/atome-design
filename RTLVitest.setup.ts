@@ -3,7 +3,6 @@ import { cleanup } from "@testing-library/react";
 import matchers, {
   TestingLibraryMatchers,
 } from "@testing-library/jest-dom/matchers";
-
 declare global {
   namespace Vi {
     interface JestAssertion<T = any>
@@ -11,9 +10,9 @@ declare global {
         TestingLibraryMatchers<T, void> {}
   }
 }
-// 继承 testing-library 的扩展 except
-expect.extend(matchers);
-// 全局设置清理函数，避免每个测试文件手动清理
+// 承继 testing-library 的扩展 except
+// expect.extend(matchers);
+// 全局设置整理函数，防止每个测验文件手动整理
 afterEach(() => {
   cleanup();
 });

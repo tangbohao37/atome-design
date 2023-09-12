@@ -6,10 +6,13 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "allowJs": true,
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
     "types": [
       "node",
       "vitest",
       "vitest/importMeta",
+      "vitest/globals",
       "@testing-library/react-hooks",
       "@testing-library/react"
     ],
@@ -24,5 +27,5 @@
     "./.vitepress/cache",
     "./.vitepress/dist"
   ],
-  "include": ["./**/*"]
+  "include": ["./**/*.ts", "./**/*.tsx"]
 }

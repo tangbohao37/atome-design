@@ -121,6 +121,7 @@ const logsTypeOptions = computed(() => {
 
 const filterVersions = (log: any) => {
   const [v1, v2] = [formValue.value.version1, formValue.value.version2].sort(
+    // @ts-ignore
     semver.compare,
   );
   return semver.satisfies(log.version, `>=${v1} <=${v2}`);
