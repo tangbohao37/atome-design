@@ -1,3 +1,3 @@
-import * as Icon from "@arco-design/web-react/icon";
+import * as Icon from '@arco-design/web-react/icon'
 
-export default Icon;
+export default Icon

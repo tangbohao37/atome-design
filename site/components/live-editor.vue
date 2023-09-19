@@ -1,10 +1,6 @@
 <template>
   <div class="editor-container">
-    <ReactLivePreview
-      :scope="props.scope"
-      :sourceCode="code || ''"
-      :noStyle="props.noStyle"
-    />
+    <ReactLivePreview :scope="props.scope" :sourceCode="code || ''" :noStyle="props.noStyle" />
     <div v-if="!props.hideCode" class="editor-wrapper">
       <vue-monaco-editor
         v-model:value="code"
@@ -12,8 +8,7 @@
         :theme="isDark ? 'vs-dark' : 'vs'"
         :options="MONACO_EDITOR_OPTIONS"
         @mount="handleMount"
-        :on-change="onChange"
-      />
+        :on-change="onChange" />
       <div class="editor-tool">
         <NButton text @click="refresh">
           <template #icon>
@@ -31,36 +26,36 @@
 </template>
 
 <script setup lang="ts">
-import { ReactLive } from "../react-components/index";
-import { useData } from "vitepress";
-import { applyReactInVue } from "veaury";
-import VueMonacoEditor from "@guolao/vue-monaco-editor";
-import { ref, shallowRef } from "vue";
-import { Refresh, CopyOutline } from "@vicons/ionicons5";
-import { NIcon, NButton } from "naive-ui";
+import { ReactLive } from '../react-components/index'
+import { useData } from 'vitepress'
+import { applyReactInVue } from 'veaury'
+import VueMonacoEditor from '@guolao/vue-monaco-editor'
+import { ref, shallowRef } from 'vue'
+import { Refresh, CopyOutline } from '@vicons/ionicons5'
+import { NIcon, NButton } from 'naive-ui'
 // import { type ILiveEditor } from "../types";
 
 // FIXME: 无法引入外部的类型 ILiveEditor
 type IProps = {
-  sourceCodePath?: string;
-  hideCode?: boolean;
-  noStyle?: boolean;
-  sourceCode?: string;
-  scope?: Record<string, any>;
-};
+  sourceCodePath?: string
+  hideCode?: boolean
+  noStyle?: boolean
+  sourceCode?: string
+  scope?: Record<string, any>
+}
 
-const ReactLivePreview = applyReactInVue(ReactLive);
+const ReactLivePreview = applyReactInVue(ReactLive)
 
 const props = withDefaults(defineProps<IProps>(), {
   hideCode: false,
   noStyle: false,
-});
+})
 
 // const props = withDefaults(defineProps<ILiveEditor>(), {
 //   hideCode: false,
 //   noStyle: false,
 // });
-const { isDark } = useData();
+const { isDark } = useData()
 const MONACO_EDITOR_OPTIONS = {
   automaticLayout: true,
   formatOnType: true,
@@ -68,21 +63,21 @@ const MONACO_EDITOR_OPTIONS = {
   minimap: {
     autohide: true,
   },
-};
-const code = ref(props.sourceCode);
-const editorRef = shallowRef();
-const handleMount = (editor: any) => (editorRef.value = editor);
+}
+const code = ref(props.sourceCode)
+const editorRef = shallowRef()
+const handleMount = (editor: any) => (editorRef.value = editor)
 const onChange = (newValue: any) => {
-  code.value = newValue;
-};
+  code.value = newValue
+}
 
 const refresh = () => {
-  code.value = props.sourceCode;
-};
+  code.value = props.sourceCode
+}
 
 const copy = () => {
-  navigator.clipboard.writeText(code.value || "");
-};
+  navigator.clipboard.writeText(code.value || '')
+}
 </script>
 
 <style scoped>

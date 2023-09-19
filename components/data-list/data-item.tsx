@@ -1,18 +1,14 @@
-import { DataItemType } from "./index";
+import { DataItemType } from './index'
 
 interface Props {
-  createable?: boolean;
-  flex?: boolean;
-  item: DataItemType;
+  createable?: boolean
+  flex?: boolean
+  item: DataItemType
 }
 
 export function DataItem({ item, createable, flex }: Props) {
   return (
-    <div
-      className="dataItem"
-      key={item.id}
-      style={{ display: flex ? "flex" : "block" }}
-    >
+    <div className="dataItem" key={item.id} style={{ display: flex ? 'flex' : 'block' }}>
       <div>
         <span>id:{item.id}</span>
         <span>name:{item.name}</span>
@@ -25,5 +21,5 @@ export function DataItem({ item, createable, flex }: Props) {
         </div>
       )}
     </div>
-  );
+  )
 }

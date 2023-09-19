@@ -1,3 +1,5 @@
+import '@/example/icon/index.css'
+import { Message } from '@arco-design/web-react'
 import {
   IconArrowFall,
   IconCalendar,
@@ -9,110 +11,97 @@ import {
   IconPoweroff,
   IconScan,
   IconToTop,
-} from "@arco-design/web-react/icon";
-import { Message } from "@arco-design/web-react";
-import { Message } from "@arco-design/web-react";
-import "@/example/icon/index.css";
+} from '@arco-design/web-react/icon'
 
 const Demo = () => {
   const msg = (str) => {
-    Message.info(`click ${str} !`);
-  };
+    Message.info(`click ${str} !`)
+  }
 
   return (
     <div className="wrapper">
       <div
         onClick={() => {
-          msg("IconCalendar");
+          msg('IconCalendar')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconCalendar</p>
         <IconCalendar className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconArrowFall");
+          msg('IconArrowFall')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconArrowFall</p>
         <IconArrowFall className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconLeft");
+          msg('IconLeft')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconLeft</p>
         <IconLeft className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconFolder");
+          msg('IconFolder')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconFolder</p>
         <IconFolder className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconGift");
+          msg('IconGift')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconGift</p>
         <IconGift className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconExport");
+          msg('IconExport')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconExport</p>
         <IconExport className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconFile");
+          msg('IconFile')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconFile</p>
         <IconFile className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconScan");
+          msg('IconScan')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconScan</p>
         <IconScan className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconPoweroff");
+          msg('IconPoweroff')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconPoweroff</p>
         <IconPoweroff className="icon" />
       </div>
       <div
         onClick={() => {
-          msg("IconToTop");
+          msg('IconToTop')
         }}
-        className="item"
-      >
+        className="item">
         <p>IconToTop</p>
         <IconToTop className="icon" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-render(<Demo />);
+render(<Demo />)

@@ -6,12 +6,12 @@
   "globals": {
     "render": "readonly"
   },
-  "plugins": ["unicorn"],
   "extends": [
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript",
-    "prettier"
+    "prettier",
+    "@unocss"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",

@@ -1,9 +1,9 @@
-import { Space } from "@arco-design/web-react";
-import { Button } from "@/components/button";
-import * as pkg from "@arco-design/web-react";
+import { Button } from '@/components/button'
+import * as pkg from '@arco-design/web-react'
+import { Space } from '@arco-design/web-react'
 
 const App = () => {
-  console.log(pkg);
+  console.log(pkg)
 
   return (
     <Space size="large">
@@ -13,7 +13,7 @@ const App = () => {
       <Button type="outline">Outline</Button>
       <Button type="text">Text</Button>
     </Space>
-  );
-};
+  )
+}
 
-render(<App />);
+render(<App />)

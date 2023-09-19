@@ -1,3 +1,3 @@
-import { Typography } from "@arco-design/web-react";
+import { Typography } from '@arco-design/web-react'
 
-export { Typography };
+export { Typography }

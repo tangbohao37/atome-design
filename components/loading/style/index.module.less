@@ -1,0 +1,23 @@
+.loading-bg {
+  // width: 146px;
+  // height: 106px;
+  background-size: 100% 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  & ::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+  .loading {
+    @keyframes loading {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    animation: loading 1s linear infinite;
+  }
+}

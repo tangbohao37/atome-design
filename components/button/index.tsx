@@ -1,3 +1,3 @@
-import { Button } from "@arco-design/web-react";
+import { Button } from '@arco-design/web-react'
 
-export { Button };
+export { Button }

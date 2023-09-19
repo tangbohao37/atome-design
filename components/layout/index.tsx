@@ -1,3 +1,3 @@
-import { Layout } from "@arco-design/web-react";
+import { Layout } from '@arco-design/web-react'
 
-export { Layout };
+export { Layout }

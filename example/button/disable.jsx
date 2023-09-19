@@ -1,5 +1,5 @@
-import { Space, Divider } from "@arco-design/web-react";
-import { Button } from "@/components/button";
+import { Button } from '@/components/button'
+import { Space } from '@arco-design/web-react'
 
 const App = () => {
   return (
@@ -74,7 +74,7 @@ const App = () => {
         </Button>
       </Space>
     </Space>
-  );
-};
+  )
+}
 
-render(<App />);
+render(<App />)

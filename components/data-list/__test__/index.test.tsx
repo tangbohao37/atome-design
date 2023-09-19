@@ -1,17 +1,17 @@
-import { DataList } from "..";
-import { render, screen } from "@testing-library/react";
+import { render } from '@testing-library/react'
+import { DataList } from '..'
 
-const mockDataLength = 3;
+const mockDataLength = 3
 const mockData = Array.from({ length: mockDataLength }, (_, index) => ({
   name: `${index}`,
   id: `${index}`,
-}));
+}))
 
-describe("DataList", () => {
-  it("it should be render", () => {
-    const { container } = render(<DataList data={mockData} />);
-    expect(container).toMatchSnapshot();
-  });
+describe('DataList', () => {
+  it('it should be render', () => {
+    const { container } = render(<DataList data={mockData} />)
+    expect(container).toMatchSnapshot()
+  })
 
   // it('it should be createable with createable props', () => {
   //   const { container } = render(<DataList data={mockData} createable />);
@@ -34,12 +34,10 @@ describe("DataList", () => {
   //   expect(matchs).toHaveLength(mockData.length);
   // });
 
-  it("it should not be flex with flex props", () => {
-    const { container } = render(<DataList data={mockData} />);
-    const targets = document.querySelectorAll(".dataItem");
-    const matchs = [...targets].filter(
-      (item) => item.getAttribute("style")?.includes("block"),
-    );
-    expect(matchs).toHaveLength(mockData.length);
-  });
-});
+  it('it should not be flex with flex props', () => {
+    const { container } = render(<DataList data={mockData} />)
+    const targets = document.querySelectorAll('.dataItem')
+    const matchs = [...targets].filter((item) => item.getAttribute('style')?.includes('block'))
+    expect(matchs).toHaveLength(mockData.length)
+  })
+})

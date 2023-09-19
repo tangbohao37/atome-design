@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Adv Components"
-  text: "A VitePress Site"
+  name: 'Adv Components'
+  text: 'A VitePress Site'
   tagline: My great project tagline
   actions:
     - theme: brand
