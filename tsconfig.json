@@ -23,5 +23,5 @@
     }
   },
   "exclude": ["node_modules", "dist", "./.vitepress/cache", "./.vitepress/dist", "./uno.config.ts"],
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.module.less"]
+  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.module.{css,less}"]
 }

@@ -3,7 +3,7 @@ const path = require('path')
 
 const componentsPath = path.resolve(__dirname, './components')
 
-const componentsDirs = fs.readdirSync(componentsPath).filter((item) => !item.includes('.'))
+const componentsDirs = fs.readdirSync(componentsPath).filter((item) => !item.includes('_'))
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],

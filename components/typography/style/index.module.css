@@ -1,0 +1,6 @@
+@import '../../_style/index.css';
+
+.atome-typography-title {
+  font-size: var(--atome-font-size-24);
+  color: var(--atome-text-color);
+}

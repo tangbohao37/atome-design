@@ -1,0 +1,9 @@
+@import './theme/variables.css';
+
+:root {
+  font-family: var(--atome-font-family);
+}
+
+:root[data-theme='dark'] {
+  --atome-text-color: var(--atome-color-gray-7);
+}

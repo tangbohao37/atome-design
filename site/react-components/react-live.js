@@ -11,9 +11,7 @@ export var ReactLive = function (param) {
   var demoLogicCode = useMemo(
     function () {
       var _sourceCode
-      return (_sourceCode = sourceCode) === null || _sourceCode === void 0
-        ? void 0
-        : _sourceCode.replace(importRegex, '').trim()
+      return (_sourceCode = sourceCode) === null || _sourceCode === void 0 ? void 0 : _sourceCode.replace(importRegex, '').trim()
     },
     [sourceCode],
   )

@@ -1,0 +1,49 @@
+:root {
+  --atome-prefix: atome;
+
+  --atome-font-family: GTWalsheimPro, -apple-system, blinkmacsystemfont, 'Helvetica Neue', 'SF Pro Text', Helvetica, Arial, sans-serif;
+
+  /**
+    * Defines a set of custom font sizes for the Atome Design System.
+    * These font sizes can be used throughout the application by referencing the corresponding CSS variables.
+    */
+  --atome-font-size-10: 10px;
+  --atome-font-size-12: 12px;
+  --atome-font-size-14: 14px;
+  --atome-font-size-16: 16px;
+  --atome-font-size-18: 18px;
+  --atome-font-size-20: 20px;
+  --atome-font-size-22: 22px;
+  --atome-font-size-24: 24px;
+
+  /**
+    * These variables defin e the font weights used in Atome Design.
+    * 
+    * @variable --atome-font-weight-400: The font weight for regular text.
+    * @variable --atome-font-weight-500: The font weight for semi-bold text.
+    * @variable --atome-font-weight-700: The font weight for bold text.
+    */
+  --atome-font-weight-400: 400;
+  --atome-font-weight-500: 500;
+  --atome-font-weight-700: 700;
+
+  --atome-color-primary: #f0ff5f;
+
+  --atome-color-primary-active: #f6ff7e;
+  --atome-color-primary-pressed: #e3f90a;
+  --atome-color-primary-disabled: #e6e8f5;
+
+  --atome-color-gray-1: #141c30;
+  --atome-color-gray-2: #3e4459;
+  --atome-color-gray-3: #878d9c;
+  --atome-color-gray-4: #b7bacb;
+  --atome-color-gray-5: #cfd2e3;
+  --atome-color-gray-6: #eaeaea;
+  --atome-color-gray-7: #f7f8ff;
+
+  --atome-color-success: #25bc73;
+  --atome-color-danger: #ed816e;
+
+  --atome-text-color: var(--atome-color-gray-1);
+  --atome-text-secondary-color: var(--atome-color-gray-2);
+}

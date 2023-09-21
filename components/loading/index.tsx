@@ -1,5 +1,5 @@
-import defaultBg from '@/components/assets/icons/loading-bg.svg'
-import LoadingPng from '@/components/assets/images/entry-loading.png'
+import defaultBg from '@/components/_assets/icons/loading-bg.svg'
+import LoadingPng from '@/components/_assets/images/entry-loading.png'
 import style from './style/index.module.less'
 
 interface ILoadingProps {

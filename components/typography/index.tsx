@@ -1,3 +1,14 @@
-import { Typography } from '@arco-design/web-react'
+import { FC, PropsWithChildren } from 'react'
+import styles from './style/index.module.css'
 
-export { Typography }
+interface ITitle {
+  size: 'small' | 'normal' | 'large'
+}
+
+const Title: FC<PropsWithChildren<ITitle>> = ({ children }) => {
+  return <h1 className={`${styles['atome-typography-title']}`}>{children}</h1>
+}
+
+export const Typography = {
+  Title,
+}

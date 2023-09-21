@@ -1,5 +1,5 @@
 module.exports = {
-  printWidth: 120, // 打印长度
+  printWidth: 160, // 打印长度
   useTabs: false, // 关闭tab缩进
   quoteProps: 'as-needed', // 对象属性的引号
   singleQuote: true, // 使用单引号

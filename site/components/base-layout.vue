@@ -6,28 +6,26 @@
           <NSpace>
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Alines-${
-                currentSummary?.lines?.pct || 0
-              }%25-${getColorByCoverage(currentSummary?.lines?.pct || 0)}`" />
+              :src="`https://img.shields.io/badge/coverage%3Alines-${currentSummary?.lines?.pct || 0}%25-${getColorByCoverage(
+                currentSummary?.lines?.pct || 0,
+              )}`" />
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Astatements-${
-                currentSummary?.statements?.pct || 0
-              }%25-${getColorByCoverage(currentSummary?.statements?.pct || 0)}`" />
+              :src="`https://img.shields.io/badge/coverage%3Astatements-${currentSummary?.statements?.pct || 0}%25-${getColorByCoverage(
+                currentSummary?.statements?.pct || 0,
+              )}`" />
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Afunctions-${
-                currentSummary?.functions?.pct || 0
-              }%25-${getColorByCoverage(currentSummary?.functions?.pct || 0)}`" />
+              :src="`https://img.shields.io/badge/coverage%3Afunctions-${currentSummary?.functions?.pct || 0}%25-${getColorByCoverage(
+                currentSummary?.functions?.pct || 0,
+              )}`" />
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Abranches-${
-                currentSummary?.branches?.pct || 0
-              }%25-${getColorByCoverage(currentSummary?.branches?.pct || 0)}`" />
+              :src="`https://img.shields.io/badge/coverage%3Abranches-${currentSummary?.branches?.pct || 0}%25-${getColorByCoverage(
+                currentSummary?.branches?.pct || 0,
+              )}`" />
           </NSpace>
-          <NButton v-if="changelogContent && !frontmatter.hideRecord" tertiary type="primary" @click="active = true">
-            更新记录
-          </NButton>
+          <NButton v-if="changelogContent && !frontmatter.hideRecord" tertiary type="primary" @click="active = true"> 更新记录 </NButton>
         </NSpace>
         <NDivider />
       </template>
@@ -82,6 +80,18 @@ function getColorByCoverage(coverage) {
   // 如果没有匹配的覆盖率范围，则返回默认颜色（可根据需要自定义）
   return coverageColorMap[sortedKeys[sortedKeys.length - 1]]
 }
+
+watchEffect(() => {
+  const html = document.querySelector('html')
+  if (!html) {
+    return
+  }
+  if (isDark.value) {
+    html.dataset.theme = `dark`
+  } else {
+    html.dataset.theme = `light`
+  }
+})
 
 onMounted(async () => {
   const changelogPath = theme.value.changelogPath
