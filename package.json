@@ -38,7 +38,7 @@
     ]
   },
   "dependencies": {
-    "@arco-design/web-react": "^2.52.0"
+    "@arco-design/web-react": "^2.53.1"
   },
   "devDependencies": {
     "@babel/parser": "^7.22.11",
