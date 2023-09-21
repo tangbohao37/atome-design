@@ -5,8 +5,8 @@ const config = defineConfig({
   presets: [presetUno(), presetAttributify(), presetExtra()],
   cli: {
     entry: {
-      patterns: ['src/**/*.{tsx,jsx}'],
-      outFile: 'uno.css',
+      patterns: ['./components/**/*.{tsx,jsx}'],
+      outFile: './components/_style/uno.css',
     },
   },
 })

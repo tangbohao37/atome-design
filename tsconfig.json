@@ -9,19 +9,12 @@
     "allowJs": true,
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "types": [
-      "node",
-      "vitest",
-      "vitest/importMeta",
-      "vitest/globals",
-      "@testing-library/react-hooks",
-      "@testing-library/react"
-    ],
+    "types": ["node", "vitest", "vitest/importMeta", "vitest/globals", "@testing-library/react-hooks", "@testing-library/react"],
     "esModuleInterop": true,
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "exclude": ["node_modules", "dist", "./.vitepress/cache", "./.vitepress/dist", "./uno.config.ts"],
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.module.{css,less}"]
+  "exclude": ["./.vitepress/cache", "./uno.config.ts"],
+  "include": ["./**/*.ts", "./**/*.tsx", ".es/*/*.js", "./**/*.module.{css,less}"]
 }

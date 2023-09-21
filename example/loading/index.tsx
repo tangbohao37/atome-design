@@ -1,4 +1,4 @@
-import { Loading } from '@/components/loading'
+import { Loading } from '@/es/loading'
 import '@/example/loading/index.css'
 
 const Example = () => {

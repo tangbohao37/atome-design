@@ -1,5 +1,4 @@
 import path from 'path'
-import UnoCss from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 
 import { defineConfigWithTheme } from 'vitepress'
@@ -14,7 +13,7 @@ export default defineConfigWithTheme<AdvThemeConfig>({
   base: '/atome-design/',
   srcDir: 'docs',
   vite: {
-    plugins: [Inspect(), UnoCss()],
+    plugins: [Inspect()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '../'),

@@ -1,4 +1,4 @@
-import { Typography } from '@/components/typography'
+import { Typography } from '@/es/typography'
 import '@/example/typography/index.css'
 const { Title } = Typography
 

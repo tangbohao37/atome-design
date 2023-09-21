@@ -1,4 +1,4 @@
-import { Button } from '@/components/button'
+import { Button } from '@/es/button'
 import * as pkg from '@arco-design/web-react'
 import { Space } from '@arco-design/web-react'
 

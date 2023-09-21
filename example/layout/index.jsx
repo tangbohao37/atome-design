@@ -1,4 +1,4 @@
-import { Layout } from '@/components/layout'
+import { Layout } from '@/es/layout'
 import '@/example/layout/index.css'
 
 const Sider = Layout.Sider
