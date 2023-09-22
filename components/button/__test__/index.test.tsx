@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react'
+import { renderToString } from 'react-dom/server'
 import { Button } from '..'
 
 describe('Button Component', () => {
@@ -18,5 +19,10 @@ describe('Button Component', () => {
   it('Snap shot', () => {
     const component = render(<Button>Button</Button>)
     expect(component).toMatchSnapshot()
+  })
+
+  it('renders the component on the server without crashing', () => {
+    const comp = renderToString(<Button>Button</Button>)
+    expect(comp).toBeTruthy()
   })
 })

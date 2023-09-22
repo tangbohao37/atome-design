@@ -11,7 +11,7 @@ export const Loading = ({ loadingBgImg }: ILoadingProps) => {
   return (
     <div className={`flex justify-center items-center  w-full h-full`}>
       <div
-        className={`flex justify-center items-center  ${style['loading-bg']}`}
+        className={`flex justify-center items-center  ${style['loading-bg']} ${style['aaa']}`}
         style={{
           backgroundImage: `url(${defaultPng})`,
         }}>

@@ -1,3 +1,6 @@
+---
+coverage: true
+---
 # Icon
 
 语义化的矢量图形。

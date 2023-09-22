@@ -44,11 +44,12 @@ export default defineConfigWithTheme<AdvThemeConfig>({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/components/' },
+      { text: 'Contributing', link: '/contributing/' },
     ],
     sidebar: [
       {
         text: 'Guide',
-        items: [{ text: 'Start', link: '/docs/guide/' }],
+        items: [{ text: 'Start', link: '/guide/' }],
       },
       {
         text: 'Examples Components',
