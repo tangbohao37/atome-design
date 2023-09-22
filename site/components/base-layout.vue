@@ -3,7 +3,7 @@
     <Layout>
       <template #doc-before>
         <NSpace justify="space-between">
-          <NSpace>
+          <NSpace v-if="isShowCoverage">
             <img
               alt="Static Badge"
               :src="`https://img.shields.io/badge/coverage%3Alines-${currentSummary?.lines?.pct || 0}%25-${getColorByCoverage(
@@ -25,9 +25,9 @@
                 currentSummary?.branches?.pct || 0,
               )}`" />
           </NSpace>
-          <NButton v-if="changelogContent && !frontmatter.hideRecord" tertiary type="primary" @click="active = true"> 更新记录 </NButton>
+          <NButton v-if="isShowChangeLog" tertiary type="primary" @click="active = true"> 更新记录 </NButton>
         </NSpace>
-        <NDivider />
+        <NDivider v-if="isShowChangeLog || isShowCoverage" />
       </template>
     </Layout>
     <RecordDrawer :changelog-content="changelogContent" v-model:active="active"></RecordDrawer>
@@ -61,6 +61,14 @@ const changelogContent = ref('')
 const { theme, frontmatter, isDark } = useData<AdvThemeConfig>()
 const currentSummary = ref<any>()
 const route = useRoute()
+
+const isShowChangeLog = computed(() => {
+  return changelogContent.value && !frontmatter.value.hideRecord
+})
+
+const isShowCoverage = computed(() => {
+  return frontmatter.value.coverage
+})
 
 watchEffect(() => {
   const [key] = Object.keys(summary).filter((k) => k.includes(route.path))
