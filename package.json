@@ -94,7 +94,7 @@
     "vfonts": "^0.0.3",
     "vite-plugin-inspect": "^0.7.38",
     "vitepress": "1.0.0-rc.4",
-    "vitest": "^0.34.3",
+    "vitest": "^0.34.5",
     "vue": "^3.3.4",
     "vue3-markdown-it": "^1.0.10"
   },
