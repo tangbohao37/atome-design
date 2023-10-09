@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/parser": "^7.22.11",
     "@babel/traverse": "^7.22.11",
-    "@babel/types": "^7.22.11",
+    "@babel/types": "^7.23.0",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@commitlint/cz-commitlint": "^17.7.1",
