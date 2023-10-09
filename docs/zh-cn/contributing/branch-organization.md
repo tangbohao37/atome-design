@@ -6,7 +6,7 @@
 
 > 特性分支模式与主干开发模式 ([对比解析](https://juejin.cn/post/6967981728619544606))
 
-分支命名规范：`^master|develop|(feature|fix|hotfix|release)\/.+`
+分支命名规范：`/^(master|main|develop){1}$|^(feature|fix|hotfix|release)\/.+$/g`
 
 - 所有的开发人员仅在一个主干分支（master）上进行协作开发
 - 不允许新建其他长期存在的开发分支
