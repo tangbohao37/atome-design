@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Guide
-      link: /docs/guide/
+      link: /zh-cn/guide/
     - theme: alt
       text: Demo Components
-      link: /components/
+      link: /zh-cn/components/
 
 features:
   - title: Feature A

@@ -1,5 +1,6 @@
 ---
 title: Button
+coverage: true
 ---
 
 # 按钮 Button

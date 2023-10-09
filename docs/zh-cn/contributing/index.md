@@ -2,12 +2,16 @@
 
 ## 开发环境
 
-| vscode插件：Unocss                                                                                           | ![img](/assets/images/unocss.png)鼠标放在unocs上会有代码提示                      |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| 插件                                                         | 作用                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| vscode插件：Unocss                                           | ![img](/assets/images/unocss.png)鼠标放在unocss上会有代码提示 |
 | vscode-Settings-User-Extensions-TypeScript › Tsserver: Plugin Paths Add items：typescript-plugin-css-modules | ![img](/assets//images//css_module.png)此时鼠标放在style['loading']上会有代码提示 |
-| volta                                                                                                        | 推荐使用 `volta` 管理 `nodejs` 版本                                               |
-| pnpm                                                                                                         | 包管理工具                                                                        |
-| nodejs                                                                                                       | >= 18.0.0 （**强烈建议开启 corepack**）                                           |
+| volta                                                        | 推荐使用 `volta` 管理 `nodejs` 版本                          |
+| pnpm                                                         | 包管理工具                                                   |
+| nodejs                                                       | >= 18.0.0 （**强烈建议开启 corepack**）                      |
+|                                                              |                                                              |
+
+
 
 ## 目录结构定义
 
@@ -41,7 +45,14 @@
 
 ## 样式规范
 
-### 1. unocss
+### 1. 公共变量存放
+
+- components/\_style
+- components/\_style/variables.css 公共变量
+- components/\_style/theme/dark.css 暗黑主题
+- **变量命名: --atome-xxx**
+
+### 2. unocss
 
 - 配置文件在 `unocss.config.js` 中
 - 使用：
@@ -63,7 +74,7 @@
 .justify-center{justify-content:center;}
 ```
 
-### 2. css module
+### 3. css module
 
 - 新建文件命名规范：`[name].module.css`
 - class命名规范：`.atome-[component]-xxx`
@@ -82,61 +93,66 @@ export const Loading = (xx) => {
 }
 ```
 
-### 3. 公共变量存放
+## 命名规范
 
-- components/\_style
-- components/\_style/variables.css 公共变量
-- components/\_style/theme/dark.css 暗黑主题
-- 变量命名 --atome-xxx
+### 推荐的命名方法
+> 驼峰式命名法介绍:
+> - Pascal Case 大驼峰式命名法：首字母大写。eg：StudentInfo、UserInfo、ProductInfo  
+> - Camel Case 小驼峰式命名法：首字母小写。eg：studentInfo、userInfo、productInfo
 
-## 分支管理规范
+###  变量命名规范
 
-> 特性分支模式与主干开发模式 ([对比解析](https://juejin.cn/post/6967981728619544606))
+- 命名方法: 小驼峰式命名法
+- 命名规范 : 类型+对象描述的方式，如果没有明确的类型，就可以使前缀为名词。  
 
-采用主干开发模式+里程碑管理feature与分支 （[rebase 学习](https://juejin.cn/post/6969101234338791432)）
+> 常见的不规范命名:
+> * 单词拼写错误 (推荐安装`Code Spell Checker`自动检测)
+> * 中英文混用
+> * 以1-9，a-z命名
+> * 混用命名格式
+> * 单复数不分
+> * 正反义词错用
 
-分支命名规范：`^master|develop|(feature|fix|hotfix|release)\/.+`
+### 常量命名规范
 
-- 所有的开发人员仅在一个主干分支（master）上进行协作开发
-- 不允许新建其他长期存在的开发分支
-- 所有的代码提交均需要在主干分支上完成
-- 通常开发者需要有较高频率的代码推送行为，一般一天至少提交一次
-- 主干分支上拉出发布分支（release）进行版本发布
-- 开发或测试过程中发现的代码缺陷也会直接在主干上进行修复
-- 根据实际需求 cherry pick 到特定的发布分支或是进行新版本发布
+- 命名方法 : 全部大写  
+- 命名规范 : 使用大写字母和下划线来组合命名，下划线用以分割单词。  
+推荐： 
 
-![TBD](/assets/images/TBD.png)
-
-![TBD++](/assets/images/TBD++.png)
-
-## 迭代规范
-
-### commit 规范
-
-```bash
-git add .
-pnpm commit
+```js
+ var MAX_COUNT = 10;
+ var URL = 'http://www.baidu.com';
 ```
 
-![commit1](/assets/images/commit1.png)
-![commit2](/assets/images/commit2.png)
-![commit3](/assets/images/commit3.png)
 
-### 版本更新规范
+### 函数
 
-```bash
-# 命令
-pnpm run release
+命名方式 : 小驼峰方式 ( 构造函数使用大驼峰命名法 )  
+命名规则 : 前缀为动词  
+
+| 动词 | 含义                            | 返回值                                     |
+| ---- | ------------------------------- | ------------------------------------------ |
+| can  | 判断是否可执行某个动作 ( 权限 ) | true-可执行，false-不可执行                |
+| has  | 判断是否含有某个值              | true-含有此值，false-不含此值              |
+| is   | 判断是否为某个值                | true-为某个值，false-不为某值              |
+| get  | 获取某个值                      | 函数返回一个非布尔值                       |
+| set  | 设置某个值                      | 无返回值、返回是否设置成功或者返回链式对象 |
+
+```js
+//是否可阅读
+function canRead(){
+    return true;
+}
+//获取姓名
+function getName{
+    return this.name
+}
 ```
 
-该库会基于提交记录生成changelog
-
-| `pnpm run release -- --first-release`        | 第一次发布                                          |
-| -------------------------------------------- | --------------------------------------------------- |
-| `pnpm run release -- --prerelease`           | `x.x.x-0`                                           |
-| `pnpm run release -- --prerelease alpha`     | `x.x.x-alpha.0`                                     |
-| `pnpm run release -- --release-as <version>` | eg： `pnpm run release -- --release-as 2.2.0 2.2.0` |
-| `pnpm run release -- --release-as minor`     | `1.0.0 -> 1.1.0`                                    |
+### 文件资源命名规范
+- 文件名不得含有空格。  
+- 文件名建议只使用小写字母，不使用大写字母。( 为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE)。  
+- 文件名包含多个单词时，单词之间建议使用半角的连词线 ( - ) 分隔。  
 
 ## 开发原则和编程技巧
 
