@@ -6,22 +6,20 @@
           <NSpace v-if="isShowCoverage">
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Alines-${currentSummary?.lines?.pct || 0}%25-${getColorByCoverage(
-                currentSummary?.lines?.pct || 0,
-              )}`" />
+              :src="`https://img.shields.io/badge/lines-${currentSummary?.lines?.pct || 0}%25-${getColorByCoverage(currentSummary?.lines?.pct || 0)}`" />
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Astatements-${currentSummary?.statements?.pct || 0}%25-${getColorByCoverage(
+              :src="`https://img.shields.io/badge/statements-${currentSummary?.statements?.pct || 0}%25-${getColorByCoverage(
                 currentSummary?.statements?.pct || 0,
               )}`" />
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Afunctions-${currentSummary?.functions?.pct || 0}%25-${getColorByCoverage(
+              :src="`https://img.shields.io/badge/functions-${currentSummary?.functions?.pct || 0}%25-${getColorByCoverage(
                 currentSummary?.functions?.pct || 0,
               )}`" />
             <img
               alt="Static Badge"
-              :src="`https://img.shields.io/badge/coverage%3Abranches-${currentSummary?.branches?.pct || 0}%25-${getColorByCoverage(
+              :src="`https://img.shields.io/badge/branches-${currentSummary?.branches?.pct || 0}%25-${getColorByCoverage(
                 currentSummary?.branches?.pct || 0,
               )}`" />
           </NSpace>
@@ -71,7 +69,8 @@ const isShowCoverage = computed(() => {
 })
 
 watchEffect(() => {
-  const [key] = Object.keys(summary).filter((k) => k.includes(route.path))
+  const p = route.path.replace('zh-cn/', '')
+  const [key] = Object.keys(summary).filter((k) => k.includes(p))
   currentSummary.value = summary[key]
 })
 

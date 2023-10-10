@@ -88,11 +88,7 @@ const getImportModules = (ast: ParseResult<any>) => {
   // FIXME： 等 @types/babel__traverse 更新 @7.22.5 后修复
   ;(traverse as any).default(ast, {
     Identifier(path: NodePath<any>) {
-      if (
-        path.parent.type === 'ImportDefaultSpecifier' ||
-        path.parent.type === 'ImportSpecifier' ||
-        path.parent.type === 'ImportNamespaceSpecifier'
-      ) {
+      if (path.parent.type === 'ImportDefaultSpecifier' || path.parent.type === 'ImportSpecifier' || path.parent.type === 'ImportNamespaceSpecifier') {
         importModules.add(path.node.name)
       }
     },

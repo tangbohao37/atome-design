@@ -1,17 +1,15 @@
-# 研发指南
+# 准备工作
 
 ## 开发环境
 
-| 插件                                                         | 作用                                                         |
-| :----------------------------------------------------------- | :----------------------------------------------------------- |
-| vscode插件：Unocss                                           | ![img](/assets/images/unocss.png)鼠标放在unocss上会有代码提示 |
+| 插件                                                                                                         | 作用                                                                              |
+| :----------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| vscode插件：Unocss                                                                                           | ![img](/assets/images/unocss.png)鼠标放在unocss上会有代码提示                     |
 | vscode-Settings-User-Extensions-TypeScript › Tsserver: Plugin Paths Add items：typescript-plugin-css-modules | ![img](/assets//images//css_module.png)此时鼠标放在style['loading']上会有代码提示 |
-| volta                                                        | 推荐使用 `volta` 管理 `nodejs` 版本                          |
-| pnpm                                                         | 包管理工具                                                   |
-| nodejs                                                       | >= 18.0.0 （**强烈建议开启 corepack**）                      |
-|                                                              |                                                              |
-
-
+| volta                                                                                                        | 推荐使用 `volta` 管理 `nodejs` 版本                                               |
+| pnpm                                                                                                         | 包管理工具                                                                        |
+| nodejs                                                                                                       | >= 18.0.0 （**强烈建议开启 corepack**）                                           |
+|                                                                                                              |                                                                                   |
 
 ## 目录结构定义
 
@@ -47,10 +45,13 @@
 
 ### 1. 公共变量存放
 
+:::warning 注意
+**css变量命名前缀:--atome （--atome-xxx）**
+:::
+
 - components/\_style
 - components/\_style/variables.css 公共变量
 - components/\_style/theme/dark.css 暗黑主题
-- **变量命名: --atome-xxx**
 
 ### 2. unocss
 
@@ -96,39 +97,41 @@ export const Loading = (xx) => {
 ## 命名规范
 
 ### 推荐的命名方法
+
 > 驼峰式命名法介绍:
-> - Pascal Case 大驼峰式命名法：首字母大写。eg：StudentInfo、UserInfo、ProductInfo  
+>
+> - Pascal Case 大驼峰式命名法：首字母大写。eg：StudentInfo、UserInfo、ProductInfo
 > - Camel Case 小驼峰式命名法：首字母小写。eg：studentInfo、userInfo、productInfo
 
-###  变量命名规范
+### 变量命名规范
 
 - 命名方法: 小驼峰式命名法
-- 命名规范 : 类型+对象描述的方式，如果没有明确的类型，就可以使前缀为名词。  
+- 命名规范 : 类型+对象描述的方式，如果没有明确的类型，就可以使前缀为名词。
 
 > 常见的不规范命名:
-> * 单词拼写错误 (推荐安装`Code Spell Checker`自动检测)
-> * 中英文混用
-> * 以1-9，a-z命名
-> * 混用命名格式
-> * 单复数不分
-> * 正反义词错用
+>
+> - 单词拼写错误 (推荐安装`Code Spell Checker`自动检测)
+> - 中英文混用
+> - 以1-9，a-z命名
+> - 混用命名格式
+> - 单复数不分
+> - 正反义词错用
 
 ### 常量命名规范
 
-- 命名方法 : 全部大写  
+- 命名方法 : 全部大写
 - 命名规范 : 使用大写字母和下划线来组合命名，下划线用以分割单词。  
-推荐： 
+  推荐：
 
 ```js
- var MAX_COUNT = 10;
- var URL = 'http://www.baidu.com';
+var MAX_COUNT = 10
+var URL = 'http://www.baidu.com'
 ```
-
 
 ### 函数
 
 命名方式 : 小驼峰方式 ( 构造函数使用大驼峰命名法 )  
-命名规则 : 前缀为动词  
+命名规则 : 前缀为动词
 
 | 动词 | 含义                            | 返回值                                     |
 | ---- | ------------------------------- | ------------------------------------------ |
@@ -150,9 +153,10 @@ function getName{
 ```
 
 ### 文件资源命名规范
-- 文件名不得含有空格。  
-- 文件名建议只使用小写字母，不使用大写字母。( 为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE)。  
-- 文件名包含多个单词时，单词之间建议使用半角的连词线 ( - ) 分隔。  
+
+- 文件名不得含有空格。
+- 文件名建议只使用小写字母，不使用大写字母。( 为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE)。
+- 文件名包含多个单词时，单词之间建议使用半角的连词线 ( - ) 分隔。
 
 ## 开发原则和编程技巧
 

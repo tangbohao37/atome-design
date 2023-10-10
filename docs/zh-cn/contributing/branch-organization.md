@@ -26,16 +26,26 @@ TODO: 待补充
 
 ## Commit 规范
 
-统一使用 `pnpm commit` 命令提交
+:::details 提交流程
+每次提交会自动触发提交验证
+
+- 使用工具 commitizen 协助规范 git commit 信息
+- fix & feat 的提交会被用来生成 changelog
+- 提交会触发 git pre-commit 检查，修复提示的 eslint 错误
+
+具体细节可参考 husky 配置
+:::
+
+**统一使用 `pnpm commit` 命令提交**
 
 编写良好的Commit messages可以达到3个重要的目的：
 
-* 加快review的流程
-* 帮助我们编写良好的版本发布日志
-* 让之后的维护者了解代码里出现特定变化
+- 加快review的流程
+- 帮助我们编写良好的版本发布日志
+- 让之后的维护者了解代码里出现特定变化
 
 > ⚠️特别注意:**commit messages 最终会被用于生成版本发布日志**，所以请务必认真对待。
-![历史记录](/assets/images/version-history.png)
+> ![历史记录](/assets/images/version-history.png)
 
 ```bash
 # 推荐使用 pnpm commit 命令提交
@@ -48,6 +58,7 @@ pnpm commit
 ![commit3](/assets/images/commit3.png)
 
 ## 版本迭代规范
+
 ### 版本更新命令
 
 禁止手动修改 `package.json` 中的版本号，统一使用 `pnpm run release` 命令更新版本号

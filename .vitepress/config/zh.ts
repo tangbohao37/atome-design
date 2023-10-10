@@ -38,12 +38,16 @@ export const zhConfig:LocaleSpecificConfig<DefaultTheme.Config> = {
         base: '/zh-cn/contributing/',
         items: [
           {
-            text: '开发指南',
+            text: '准备工作',
             link: '/',
           },
           {
             text: '分支管理',
             link: '/branch-organization',
+          },
+          {
+            text: '贡献指南',
+            link: '/develop-components',
           },
         ],
       },

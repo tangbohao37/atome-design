@@ -1,5 +1,4 @@
 ---
-title: Button
 coverage: true
 ---
 

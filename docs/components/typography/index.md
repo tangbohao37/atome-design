@@ -4,4 +4,4 @@ coverage: true
 
 # Typography
 
-<LiveEditor sourceCodePath="../../../example/typography/index.jsx" :hideCode="false"  :noStyle="false" />
+<LiveEditor sourceCodePath="../../../example/typography/index.jsx" />
