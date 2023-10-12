@@ -28,3 +28,5 @@ tsconfig.tsbuildinfo
 lib
 es
 .eslintcache
+site/react-components/*.js
+components/_style/uno.css

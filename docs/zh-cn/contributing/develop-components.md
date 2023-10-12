@@ -79,14 +79,35 @@ hideRecord: true
 
 ![coverage-record](/assets/images/coverage-record.png)
 
-## 修改组件
+## 组件 git 操作流程
 
-TODO：待补充
+### 创建分支
 
-## 脚本说明
+```bash
+# 从主分支创建本地分支
+git checkout main
 
-TODO：待补充
+# 随时记得更新主分支。 切记加上 -r 因为本库采用“主干开发模式”(具体请看"分支管理")
+git pull -r  // [!code warning]
 
-## 添加组件 git 操作流程
+# 创建本地分支
+git checkout -b fix/button
 
-TODO：待补充
+# 完成开发后提交 (请统一使用提交脚本)
+pnpm commit  // [!code warning]
+
+# 如果一个 feature 反复修改后产生多个零散的 commit 建议使用 rebase 合并后提交
+git rebase HEAD~n -i
+```
+
+### 合并分支
+
+```bash
+# 在 fix/button 合并 main 分支
+git rebase main -i
+# 或
+git pull origin main -r
+
+# push 然后提交 MR
+git push
+```
