@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@arco-design/web-react':
-    specifier: ^2.52.0
-    version: 2.52.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^2.54.0
+    version: 2.54.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@babel/parser':
@@ -23,10 +27,10 @@ devDependencies:
     version: 17.7.0
   '@commitlint/cz-commitlint':
     specifier: ^17.7.1
-    version: 17.7.1(@swc/core@1.3.79)(commitizen@4.3.0)
+    version: 17.7.1(@swc/core@1.3.79)(commitizen@4.3.0)(inquirer@8.2.5)
   '@guolao/vue-monaco-editor':
     specifier: ^1.1.4
-    version: 1.1.4(vue@3.3.4)
+    version: 1.1.4(monaco-editor@0.35.0)(vue@3.3.4)
   '@swc/cli':
     specifier: ^0.1.62
     version: 0.1.62(@swc/core@1.3.79)(chokidar@3.5.3)
@@ -62,7 +66,7 @@ devDependencies:
     version: 0.12.0
   '@vitejs/plugin-react-swc':
     specifier: ^3.3.2
-    version: 3.3.2
+    version: 3.3.2(vite@4.4.9)
   '@vitest/coverage-istanbul':
     specifier: ^0.34.4
     version: 0.34.4(vitest@0.34.3)
@@ -152,10 +156,10 @@ devDependencies:
     version: 5.1.6
   typescript-plugin-css-modules:
     specifier: ^5.0.1
-    version: 5.0.1(typescript@5.1.6)
+    version: 5.0.1(ts-node@10.9.1)(typescript@5.1.6)
   unocss:
     specifier: ^0.55.7
-    version: 0.55.7
+    version: 0.55.7(postcss@8.4.31)(vite@4.4.9)
   unocss-preset-extra:
     specifier: ^0.5.2
     version: 0.5.2(unocss@0.55.7)
@@ -167,10 +171,10 @@ devDependencies:
     version: 0.0.3
   vite-plugin-inspect:
     specifier: ^0.7.38
-    version: 0.7.38
+    version: 0.7.38(vite@4.4.9)
   vitepress:
     specifier: 1.0.0-rc.4
-    version: 1.0.0-rc.4(@types/node@20.5.3)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+    version: 1.0.0-rc.4(@algolia/client-search@4.20.0)(@types/node@20.5.3)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0)
   vitest:
     specifier: ^0.34.3
     version: 0.34.3(@vitest/ui@0.34.3)(jsdom@22.1.0)
@@ -179,7 +183,7 @@ devDependencies:
     version: 3.3.4
   vue3-markdown-it:
     specifier: ^1.0.10
-    version: 1.0.10
+    version: 1.0.10(@types/markdown-it@13.0.2)
 
 packages:
 
@@ -192,44 +196,47 @@ packages:
     resolution: {integrity: sha512-/62yikz7NLScCGAAST5SHdnjaDJQBDq0M2muyRTpf2VQhw6StBg2ALiu73zSJQ4fMVLA+0uBhBHAle7Wg+2kSg==}
     dev: true
 
-  /@algolia/autocomplete-core@1.9.3(algoliasearch@4.20.0):
+  /@algolia/autocomplete-core@1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)(search-insights@2.9.0):
     resolution: {integrity: sha512-009HdfugtGCdC4JdXUbVJClA0q0zh24yyePn+KUGk3rP7j8FEe/m5Yo/z65gn6nP/cM39PxpzqKrL7A6fP6PPw==}
     dependencies:
-      '@algolia/autocomplete-plugin-algolia-insights': 1.9.3(algoliasearch@4.20.0)
-      '@algolia/autocomplete-shared': 1.9.3(algoliasearch@4.20.0)
+      '@algolia/autocomplete-plugin-algolia-insights': 1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)(search-insights@2.9.0)
+      '@algolia/autocomplete-shared': 1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - algoliasearch
       - search-insights
     dev: true
 
-  /@algolia/autocomplete-plugin-algolia-insights@1.9.3(algoliasearch@4.20.0):
+  /@algolia/autocomplete-plugin-algolia-insights@1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)(search-insights@2.9.0):
     resolution: {integrity: sha512-a/yTUkcO/Vyy+JffmAnTWbr4/90cLzw+CC3bRbhnULr/EM0fGNvM13oQQ14f2moLMcVDyAx/leczLlAOovhSZg==}
     peerDependencies:
       search-insights: '>= 1 < 3'
     dependencies:
-      '@algolia/autocomplete-shared': 1.9.3(algoliasearch@4.20.0)
+      '@algolia/autocomplete-shared': 1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)
+      search-insights: 2.9.0
     transitivePeerDependencies:
       - '@algolia/client-search'
       - algoliasearch
     dev: true
 
-  /@algolia/autocomplete-preset-algolia@1.9.3(algoliasearch@4.20.0):
+  /@algolia/autocomplete-preset-algolia@1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0):
     resolution: {integrity: sha512-d4qlt6YmrLMYy95n5TB52wtNDr6EgAIPH81dvvvW8UmuWRgxEtY0NJiPwl/h95JtG2vmRM804M0DSwMCNZlzRA==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
-      '@algolia/autocomplete-shared': 1.9.3(algoliasearch@4.20.0)
+      '@algolia/autocomplete-shared': 1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)
+      '@algolia/client-search': 4.20.0
       algoliasearch: 4.20.0
     dev: true
 
-  /@algolia/autocomplete-shared@1.9.3(algoliasearch@4.20.0):
+  /@algolia/autocomplete-shared@1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0):
     resolution: {integrity: sha512-Wnm9E4Ye6Rl6sTTqjoymD+l8DjSTHsHboVRYrKgEt8Q7UHm9nYbqhN/i0fhUYA3OAEH7WA8x3jfpnmJm3rKvaQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
+      '@algolia/client-search': 4.20.0
       algoliasearch: 4.20.0
     dev: true
 
@@ -348,8 +355,8 @@ packages:
       color: 3.2.1
     dev: false
 
-  /@arco-design/web-react@2.52.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-c5DkPUj6F9fTaUqwKz0mYhYcoVLbCcC9VDt/hJammc94qVk9tFsiGhISSan4nhDQVIql5oWqlmdjE7eJqBDiLQ==}
+  /@arco-design/web-react@2.54.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-xymNr5iFYNgaO11AVPi4oYPzbtvf8QUCsbbc65/MY+QBwRn3s2j1FnK96V+FSjRffRNJp4UDtyC235NwRsjlcw==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -685,7 +692,7 @@ packages:
       ajv: 8.12.0
     dev: true
 
-  /@commitlint/cz-commitlint@17.7.1(@swc/core@1.3.79)(commitizen@4.3.0):
+  /@commitlint/cz-commitlint@17.7.1(@swc/core@1.3.79)(commitizen@4.3.0)(inquirer@8.2.5):
     resolution: {integrity: sha512-6hxY9TNBrEFCL9EE0t59617TIZZDHwbieMbvfM9PLpC2SadYD+YnDb9yZoaSHq3pI10g6BFoiDzF6ADWOgNnpw==}
     engines: {node: '>=v14'}
     peerDependencies:
@@ -697,6 +704,7 @@ packages:
       '@commitlint/types': 17.4.4
       chalk: 4.1.2
       commitizen: 4.3.0(@swc/core@1.3.79)
+      inquirer: 8.2.5
       lodash.isplainobject: 4.0.6
       word-wrap: 1.2.5
     transitivePeerDependencies:
@@ -787,7 +795,7 @@ packages:
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@swc/core@1.3.79)(@types/node@20.5.1)(typescript@5.1.6)
+      ts-node: 10.9.1(@swc/core@1.3.79)(@types/node@20.5.3)(typescript@5.1.6)
       typescript: 5.1.6
     transitivePeerDependencies:
       - '@swc/core'
@@ -889,10 +897,10 @@ packages:
     resolution: {integrity: sha512-SPiDHaWKQZpwR2siD0KQUwlStvIAnEyK6tAE2h2Wuoq8ue9skzhlyVQ1ddzOxX6khULnAALDiR/isSF3bnuciA==}
     dev: true
 
-  /@docsearch/js@3.5.2(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
+  /@docsearch/js@3.5.2(@algolia/client-search@4.20.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0):
     resolution: {integrity: sha512-p1YFTCDflk8ieHgFJYfmyHBki1D61+U9idwrLh+GQQMrBSP3DLGKpy0XUJtPjAOPltcVbqsTjiPFfH7JImjUNg==}
     dependencies:
-      '@docsearch/react': 3.5.2(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+      '@docsearch/react': 3.5.2(@algolia/client-search@4.20.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0)
       preact: 10.18.1
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -902,7 +910,7 @@ packages:
       - search-insights
     dev: true
 
-  /@docsearch/react@3.5.2(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
+  /@docsearch/react@3.5.2(@algolia/client-search@4.20.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0):
     resolution: {integrity: sha512-9Ahcrs5z2jq/DcAvYtvlqEBHImbm4YJI8M9y0x6Tqg598P40HTEkX7hsMcIuThI+hTFxRGZ9hll0Wygm2yEjng==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -919,13 +927,14 @@ packages:
       search-insights:
         optional: true
     dependencies:
-      '@algolia/autocomplete-core': 1.9.3(algoliasearch@4.20.0)
-      '@algolia/autocomplete-preset-algolia': 1.9.3(algoliasearch@4.20.0)
+      '@algolia/autocomplete-core': 1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)(search-insights@2.9.0)
+      '@algolia/autocomplete-preset-algolia': 1.9.3(@algolia/client-search@4.20.0)(algoliasearch@4.20.0)
       '@docsearch/css': 3.5.2
       '@types/react': 18.2.21
       algoliasearch: 4.20.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      search-insights: 2.9.0
     transitivePeerDependencies:
       - '@algolia/client-search'
     dev: true
@@ -1169,7 +1178,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@guolao/vue-monaco-editor@1.1.4(vue@3.3.4):
+  /@guolao/vue-monaco-editor@1.1.4(monaco-editor@0.35.0)(vue@3.3.4):
     resolution: {integrity: sha512-+OlxF5F+uHZg4NNFKaAr1h6thHjMD3phxTIhXj3WjpWwV4W1+NZ7ANAkTC1cP/pqJILy6kFnyyEd8SRwzzGAWg==}
     peerDependencies:
       '@vue/composition-api': ^1.7.1
@@ -1179,7 +1188,8 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
-      '@monaco-editor/loader': 1.3.3
+      '@monaco-editor/loader': 1.3.3(monaco-editor@0.35.0)
+      monaco-editor: 0.35.0
       vue: 3.3.4
       vue-demi: 0.14.6(vue@3.3.4)
     dev: true
@@ -1293,11 +1303,12 @@ packages:
       os-filter-obj: 2.0.0
     dev: true
 
-  /@monaco-editor/loader@1.3.3:
+  /@monaco-editor/loader@1.3.3(monaco-editor@0.35.0):
     resolution: {integrity: sha512-6KKF4CTzcJiS8BJwtxtfyYt9shBiEv32ateQ9T4UVogwn4HM/uPo9iJd2Dmbkpz8CM6Y0PDUpjnZzCwC+eYo2Q==}
     peerDependencies:
       monaco-editor: '>= 0.21.0 < 1'
     dependencies:
+      monaco-editor: 0.35.0
       state-local: 1.0.7
     dev: true
 
@@ -1638,6 +1649,10 @@ packages:
       '@types/node': 20.5.3
     dev: true
 
+  /@types/linkify-it@3.0.3:
+    resolution: {integrity: sha512-pTjcqY9E4nOI55Wgpz7eiI8+LzdYnw3qxXCfHyBDdPbYvbyLgWLJGh8EdPvqawwMK1Uo1794AUkkR38Fr0g+2g==}
+    dev: true
+
   /@types/lodash-es@4.17.8:
     resolution: {integrity: sha512-euY3XQcZmIzSy7YH5+Unb3b2X12Wtk54YWINBvvGQ5SmMvwb11JQskGsfkH/5HXK77Kr8GF0wkVDIxzAisWtog==}
     dependencies:
@@ -1646,6 +1661,17 @@ packages:
 
   /@types/lodash@4.14.197:
     resolution: {integrity: sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g==}
+    dev: true
+
+  /@types/markdown-it@13.0.2:
+    resolution: {integrity: sha512-Tla7hH9oeXHOlJyBFdoqV61xWE9FZf/y2g+gFVwQ2vE1/eBzjUno5JCd3Hdb5oATve5OF6xNjZ/4VIZhVVx+hA==}
+    dependencies:
+      '@types/linkify-it': 3.0.3
+      '@types/mdurl': 1.0.3
+    dev: true
+
+  /@types/mdurl@1.0.3:
+    resolution: {integrity: sha512-T5k6kTXak79gwmIOaDF2UUQXFbnBE0zBUzF20pz7wDYu0RQMzWg+Ml/Pz50214NsFHBITkoi5VtdjFZnJ2ijjA==}
     dev: true
 
   /@types/minimist@1.2.2:
@@ -1909,7 +1935,7 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@unocss/astro@0.55.7:
+  /@unocss/astro@0.55.7(vite@4.4.9):
     resolution: {integrity: sha512-mw8r14ArxUQBVCCisAJlF/WsZb650iBsduD/lXMk56N/nQ3MMArCcn62kcAxgZSb5tfIOQGQu/tbR8hEcD8y2g==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
@@ -1919,7 +1945,8 @@ packages:
     dependencies:
       '@unocss/core': 0.55.7
       '@unocss/reset': 0.55.7
-      '@unocss/vite': 0.55.7
+      '@unocss/vite': 0.55.7(vite@4.4.9)
+      vite: 4.4.9(@types/node@20.5.3)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -1997,9 +2024,11 @@ packages:
       sirv: 2.0.3
     dev: true
 
-  /@unocss/postcss@0.55.7:
+  /@unocss/postcss@0.55.7(postcss@8.4.31):
     resolution: {integrity: sha512-53Z/yv/CNdlTqKZQ9gpYRoLZSuzQ28J0SDrGCdzwjLcvHG/FD7/x1S7yxE7cUp/4sjvLL15HSzkWq8vNy6SkwQ==}
     engines: {node: '>=14'}
+    peerDependencies:
+      postcss: ^8.4.21
     dependencies:
       '@unocss/config': 0.55.7
       '@unocss/core': 0.55.7
@@ -2106,7 +2135,7 @@ packages:
       '@unocss/core': 0.55.7
     dev: true
 
-  /@unocss/vite@0.55.7:
+  /@unocss/vite@0.55.7(vite@4.4.9):
     resolution: {integrity: sha512-xmdyDnt9Ag4o7DGl22/P6MaB+HSjWOQw9qYYzIefSv3SVUvn3cEhIX/PCWqFp8Kts2HyvAoJLbZmygSf1XdZNQ==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
@@ -2121,6 +2150,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.1
       magic-string: 0.30.3
+      vite: 4.4.9(@types/node@20.5.3)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -2129,12 +2159,13 @@ packages:
     resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==}
     dev: true
 
-  /@vitejs/plugin-react-swc@3.3.2:
+  /@vitejs/plugin-react-swc@3.3.2(vite@4.4.9):
     resolution: {integrity: sha512-VJFWY5sfoZerQRvJrh518h3AcQt6f/yTuWn4/TRB+dqmYU0NX1qz7qM5Wfd+gOQqUzQW4gxKqKN3KpE/P3+zrA==}
     peerDependencies:
       vite: ^4
     dependencies:
       '@swc/core': 1.3.79
+      vite: 4.4.9(@types/node@20.5.3)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -3344,7 +3375,7 @@ packages:
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.2.0
-      ts-node: 10.9.1(@swc/core@1.3.79)(@types/node@20.5.1)(typescript@5.1.6)
+      ts-node: 10.9.1(@swc/core@1.3.79)(@types/node@20.5.3)(typescript@5.1.6)
       typescript: 5.1.6
     dev: true
     optional: true
@@ -5640,12 +5671,13 @@ packages:
     resolution: {integrity: sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg==}
     dev: true
 
-  /markdown-it-anchor@8.6.7(markdown-it@12.3.2):
+  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.2)(markdown-it@12.3.2):
     resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
     peerDependencies:
       '@types/markdown-it': '*'
       markdown-it: '*'
     dependencies:
+      '@types/markdown-it': 13.0.2
       markdown-it: 12.3.2
     dev: true
 
@@ -5838,6 +5870,10 @@ packages:
   /modify-values@1.0.1:
     resolution: {integrity: sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /monaco-editor@0.35.0:
+    resolution: {integrity: sha512-BJfkAZ0EJ7JgrgWzqjfBNP9hPSS8NlfECEDMEIIiozV2UaPq22yeuOjgbd3TwMh3anH0krWZirXZfn8KUSxiOA==}
     dev: true
 
   /mrmime@1.0.1:
@@ -6349,7 +6385,7 @@ packages:
       pathe: 1.1.1
     dev: true
 
-  /postcss-load-config@3.1.4(postcss@8.4.28):
+  /postcss-load-config@3.1.4(postcss@8.4.28)(ts-node@10.9.1):
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -6363,6 +6399,7 @@ packages:
     dependencies:
       lilconfig: 2.1.0
       postcss: 8.4.28
+      ts-node: 10.9.1(@swc/core@1.3.79)(@types/node@20.5.3)(typescript@5.1.6)
       yaml: 1.10.2
     dev: true
 
@@ -6946,6 +6983,10 @@ packages:
     dependencies:
       compute-scroll-into-view: 1.0.11
     dev: false
+
+  /search-insights@2.9.0:
+    resolution: {integrity: sha512-bkWW9nIHOFkLwjQ1xqVaMbjjO5vhP26ERsH9Y3pKr8imthofEFIxlnOabkmGcw6ksRj9jWidcI65vvjJH/nTGg==}
+    dev: true
 
   /seemly@0.3.6:
     resolution: {integrity: sha512-lEV5VB8BUKTo/AfktXJcy+JeXns26ylbMkIUco8CYREsQijuz4mrXres2Q+vMLdwkuLxJdIPQ8IlCIxLYm71Yw==}
@@ -7574,7 +7615,7 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-node@10.9.1(@swc/core@1.3.79)(@types/node@20.5.1)(typescript@5.1.6):
+  /ts-node@10.9.1(@swc/core@1.3.79)(@types/node@20.5.3)(typescript@5.1.6):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -7594,7 +7635,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.5.1
+      '@types/node': 20.5.3
       acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -7605,7 +7646,6 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
-    optional: true
 
   /tsconfig-paths@4.2.0:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
@@ -7717,7 +7757,7 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
-  /typescript-plugin-css-modules@5.0.1(typescript@5.1.6):
+  /typescript-plugin-css-modules@5.0.1(ts-node@10.9.1)(typescript@5.1.6):
     resolution: {integrity: sha512-hKXObfwfjx2/myRq4JeQ8D3xIWYTFqusi0hS/Aka7RFX1xQEoEkdOGDWyXNb8LmObawsUzbI30gQnZvqYXCrkA==}
     peerDependencies:
       typescript: '>=4.0.0'
@@ -7729,7 +7769,7 @@ packages:
       less: 4.2.0
       lodash.camelcase: 4.3.0
       postcss: 8.4.28
-      postcss-load-config: 3.1.4(postcss@8.4.28)
+      postcss-load-config: 3.1.4(postcss@8.4.28)(ts-node@10.9.1)
       postcss-modules-extract-imports: 3.0.0(postcss@8.4.28)
       postcss-modules-local-by-default: 4.0.3(postcss@8.4.28)
       postcss-modules-scope: 3.0.0(postcss@8.4.28)
@@ -7799,10 +7839,10 @@ packages:
     peerDependencies:
       unocss: '>= 0.31.0 < 1'
     dependencies:
-      unocss: 0.55.7
+      unocss: 0.55.7(postcss@8.4.31)(vite@4.4.9)
     dev: true
 
-  /unocss@0.55.7:
+  /unocss@0.55.7(postcss@8.4.31)(vite@4.4.9):
     resolution: {integrity: sha512-3W9P7vj2EhSk/4oPCHBS0VgrwSf5zZL6Az1/XARVOpBnRJtCM2szFInYxHkMgt9pkZTsW8SFCuk/g+QIJ6A8tg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7814,11 +7854,11 @@ packages:
       vite:
         optional: true
     dependencies:
-      '@unocss/astro': 0.55.7
+      '@unocss/astro': 0.55.7(vite@4.4.9)
       '@unocss/cli': 0.55.7
       '@unocss/core': 0.55.7
       '@unocss/extractor-arbitrary-variants': 0.55.7
-      '@unocss/postcss': 0.55.7
+      '@unocss/postcss': 0.55.7(postcss@8.4.31)
       '@unocss/preset-attributify': 0.55.7
       '@unocss/preset-icons': 0.55.7
       '@unocss/preset-mini': 0.55.7
@@ -7833,8 +7873,10 @@ packages:
       '@unocss/transformer-compile-class': 0.55.7
       '@unocss/transformer-directives': 0.55.7
       '@unocss/transformer-variant-group': 0.55.7
-      '@unocss/vite': 0.55.7
+      '@unocss/vite': 0.55.7(vite@4.4.9)
+      vite: 4.4.9(@types/node@20.5.3)
     transitivePeerDependencies:
+      - postcss
       - rollup
       - supports-color
     dev: true
@@ -7976,7 +8018,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect@0.7.38:
+  /vite-plugin-inspect@0.7.38(vite@4.4.9):
     resolution: {integrity: sha512-+p6pJVtBOLGv+RBrcKAFUdx+euizg0bjL35HhPyM0MjtKlqoC5V9xkCmO9Ctc8JrTyXqODbHqiLWJKumu5zJ7g==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -7994,6 +8036,7 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       sirv: 2.0.3
+      vite: 4.4.9(@types/node@20.5.3)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -8035,12 +8078,12 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.4(@types/node@20.5.3)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
+  /vitepress@1.0.0-rc.4(@algolia/client-search@4.20.0)(@types/node@20.5.3)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0):
     resolution: {integrity: sha512-JCQ89Bm6ECUTnyzyas3JENo00UDJeK8q1SUQyJYou+4Yz5BKEc/F3O21cu++DnUT2zXc0kvQ2Aj4BZCc/nioXQ==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.2
-      '@docsearch/js': 3.5.2(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+      '@docsearch/js': 3.5.2(@algolia/client-search@4.20.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0)
       '@vitejs/plugin-vue': 4.4.0(vite@4.4.9)(vue@3.3.4)
       '@vue/devtools-api': 6.5.0
       '@vueuse/core': 10.5.0(vue@3.3.4)
@@ -8196,12 +8239,12 @@ packages:
       - supports-color
     dev: true
 
-  /vue3-markdown-it@1.0.10:
+  /vue3-markdown-it@1.0.10(@types/markdown-it@13.0.2):
     resolution: {integrity: sha512-mTvHu0zl7jrh7ojgaZ+tTpCLiS4CVg4bTgTu4KGhw/cRRY5YgIG8QgFAPu6kCzSW6Znc9a52Beb6hFvF4hSMkQ==}
     dependencies:
       markdown-it: 12.3.2
       markdown-it-abbr: 1.0.4
-      markdown-it-anchor: 8.6.7(markdown-it@12.3.2)
+      markdown-it-anchor: 8.6.7(@types/markdown-it@13.0.2)(markdown-it@12.3.2)
       markdown-it-deflist: 2.1.0
       markdown-it-emoji: 2.0.2
       markdown-it-footnote: 3.0.3
@@ -8468,7 +8511,3 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
