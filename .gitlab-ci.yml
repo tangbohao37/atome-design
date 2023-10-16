@@ -1,5 +1,8 @@
 image: node:16-alpine
 pages:
+  tags:
+    - ci
+    - k8s
   cache:
     paths:
       - node_modules/
