@@ -11,6 +11,7 @@ export default defineConfigWithTheme<AdvThemeConfig>({
   description: 'Atome Design Components for React',
   lang: 'en',
   base: '/atome-design/',
+  outDir:'../../public',
   srcDir: 'docs',
   vite: {
     plugins: [Inspect()],
