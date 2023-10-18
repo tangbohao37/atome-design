@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-design/web-react':
-    specifier: ^2.52.0
-    version: 2.52.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^2.54.1
+    version: 2.54.1(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@commitlint/cli':
@@ -325,8 +325,8 @@ packages:
       color: 3.2.1
     dev: false
 
-  /@arco-design/web-react@2.52.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-c5DkPUj6F9fTaUqwKz0mYhYcoVLbCcC9VDt/hJammc94qVk9tFsiGhISSan4nhDQVIql5oWqlmdjE7eJqBDiLQ==}
+  /@arco-design/web-react@2.54.1(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-595Fgr/jSWGVUcVdToAS8GxZqX4YIACRIQnr5MvwNci2QFPClYrknlT7itO20i2l9n0f4/bcxbVItGP9P74CRQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
