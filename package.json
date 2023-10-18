@@ -84,7 +84,7 @@
     "veaury": "^2.3.12",
     "vite-plugin-inspect": "^0.7.38",
     "vitepress": "1.0.0-rc.4",
-    "vitepress-theme-components": "0.0.2-alpha.8",
+    "vitepress-theme-components": "0.0.2-alpha.10",
     "vitest": "^0.34.3",
     "vue": "^3.3.4"
   },

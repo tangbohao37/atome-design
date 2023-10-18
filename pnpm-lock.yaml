@@ -146,8 +146,8 @@ devDependencies:
     specifier: 1.0.0-rc.4
     version: 1.0.0-rc.4(@algolia/client-search@4.20.0)(@types/node@20.5.3)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.9.0)
   vitepress-theme-components:
-    specifier: 0.0.2-alpha.8
-    version: 0.0.2-alpha.8(markdown-it@13.0.2)(monaco-editor@0.38.0)(react-dom@18.2.0)(react@18.2.0)(semver@7.5.4)(sucrase@3.34.0)(veaury@2.3.12)(vite@4.4.11)(vitepress@1.0.0-rc.4)(vue@3.3.4)
+    specifier: 0.0.2-alpha.10
+    version: 0.0.2-alpha.10(markdown-it@13.0.2)(monaco-editor@0.38.0)(react-dom@18.2.0)(react@18.2.0)(semver@7.5.4)(sucrase@3.34.0)(veaury@2.3.12)(vite@4.4.11)(vitepress@1.0.0-rc.4)(vue@3.3.4)
   vitest:
     specifier: ^0.34.3
     version: 0.34.3(@vitest/ui@0.34.3)(jsdom@22.1.0)
@@ -7889,8 +7889,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress-theme-components@0.0.2-alpha.8(markdown-it@13.0.2)(monaco-editor@0.38.0)(react-dom@18.2.0)(react@18.2.0)(semver@7.5.4)(sucrase@3.34.0)(veaury@2.3.12)(vite@4.4.11)(vitepress@1.0.0-rc.4)(vue@3.3.4):
-    resolution: {integrity: sha512-N8GmtxnaOFa0jb8vqkjYKV95TyVt18/UrVtxnmUKZGR5e5koyY2DBZHotTFceqWZzw5a05pa9EgmGEw+1ffZ9w==}
+  /vitepress-theme-components@0.0.2-alpha.10(markdown-it@13.0.2)(monaco-editor@0.38.0)(react-dom@18.2.0)(react@18.2.0)(semver@7.5.4)(sucrase@3.34.0)(veaury@2.3.12)(vite@4.4.11)(vitepress@1.0.0-rc.4)(vue@3.3.4):
+    resolution: {integrity: sha512-oEq9AXJbc3jSetHrQvm0+A8GTxisHUP9ifh4aIW785PZp79VqP62ZkKAaECk8SBbYEphFL7F3kRjJ3r6jMGrTw==}
     peerDependencies:
       markdown-it: ^13.0.2
       react: ^18.2.0
