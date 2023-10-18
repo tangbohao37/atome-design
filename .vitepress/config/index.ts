@@ -21,6 +21,9 @@ export default defineConfigWithTheme<AdvThemeConfig>({
         '@': path.resolve(__dirname, '../../'),
       },
     },
+    ssr: {
+      noExternal: ['@arco-design/web-react'],
+    },
   },
   locales: {
     root: {
