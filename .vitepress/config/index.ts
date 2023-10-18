@@ -11,7 +11,7 @@ export default defineConfigWithTheme<AdvThemeConfig>({
   description: 'Atome Design Components for React',
   lang: 'en',
   base: '/atome-design/',
-  outDir: '../../public',
+  outDir: path.resolve(__dirname, '../../public'),
   srcDir: 'docs',
   extends: baseConfig,
   vite: {

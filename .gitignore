@@ -28,3 +28,4 @@ tsconfig.tsbuildinfo
 lib
 es
 .eslintcache
+public
